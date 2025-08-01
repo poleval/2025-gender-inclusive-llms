@@ -13,7 +13,7 @@ One social consequence of this linguistic system is that current large language 
 The dominance of masculine expressions over feminine ones in a language is a form of gender discrimination ([GEC](https://edoc.coe.int/en/gender-equality/6947-gender-equality-glossary.html),  [GNL-EU](https://www.europarl.europa.eu/cmsdata/151780/GNL_Guidelines_EN.pdf)). Acknowledging the harmful effects of sexist language, the Council of Europe encourages its member states to eliminate sexism from language and to adopt practices that support gender equality. In line with this recommendation, we introduce a task focused on developing gender-inclusive LLMs for Polish.
 
 <p align="center">
-<img src="https://github.com/alina-wroblewska/gender_inclusive_llms/blob/main/pictures/gender-equality.png" alt="gender_inclusive_language" width="100"/>
+<img src="https://github.com/poleval/2025-gender-inclusive-llms/blob/main/pictures/gender-equality.png" alt="gender_inclusive_language" width="100"/>
 </p>
 
 <p align="center">
