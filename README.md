@@ -162,9 +162,9 @@ For evaluation, the gender-inclusive ```generated_target``` samples should be no
 
 ⚠️ A Python script for normalisation is included in the task repository.
 
-### Baseline
+### Baseline and SOTA
 
-The baseline corresponds to the best off-the-shelf LLM (-base). The state of the art corresponds to the best LLM instruction-tuned on the IPIS train subset (-ipis) and possibly guided by a system prompt in Polish (-pl) or English (-en). We have tested multilingual models [Llama-8B](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct), [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2) and [Mistral-Nemo](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407), and Polish-specific models [Bielik-7B](https://huggingface.co/speakleash/Bielik-7B-Instruct-v0.1), [Llama-PLLuM-8B](https://huggingface.co/CYFRAGOVPL/Llama-PLLuM-8B-chat), [Bielik-11B](https://huggingface.co/speakleash/Bielik-11B-v2.3-Instruct) and [PLLuM-12B](https://huggingface.co/CYFRAGOVPL/PLLuM-12B-nc-chat).
+The baseline corresponds to the best off-the-shelf LLM (-default). The state of the art corresponds to the best LLM instruction-tuned on the IPIS train subset (-tuned) and possibly guided by a system prompt in Polish (-pl) or English (-en). We have tested multilingual models [Llama-8B](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct), [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2) and [Mistral-Nemo](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407), and Polish-specific models [Bielik-7B](https://huggingface.co/speakleash/Bielik-7B-Instruct-v0.1), [Llama-PLLuM-8B](https://huggingface.co/CYFRAGOVPL/Llama-PLLuM-8B-chat), [Bielik-11B](https://huggingface.co/speakleash/Bielik-11B-v2.3-Instruct) and [PLLuM-12B](https://huggingface.co/CYFRAGOVPL/PLLuM-12B-nc-chat). The detailed scores are in Wróblewska and Żuk (2025a).
 
 
 🅰️ **Subtask**
@@ -173,28 +173,31 @@ The baseline corresponds to the best off-the-shelf LLM (-base). The state of the
     <thead>
         <tr>
         	  <th colspan="2">LLM</th>
+            <th>precision</th>
+            <th>recall</th>
             <th><b>F<sub>1</sub></b></th>
-            <th>chrF</th>
-            <th>chrF++</th>
             <th>BLEU</th>
+            <th>chrF</th>
         </tr>
     </thead>
     <tbody>
         <tr>
         	  <td><b>Baseline</b></td>
-            <td><b>LLM-base</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><b>PLLuM-12B-default-pl</b></td>
+            <td>2.56</td>
+            <td>6.28</td>
+            <td>3.64</td>
+            <td>63.59</td>
+            <td>82.74</td>
         </tr>
         <tr>
         	  <td><b>SOTA</b></td>
-            <td><b>LLM-tuned</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><b>Bielik-11B-tuned</b></td>
+            <td>63.93</td>
+            <td>56.26</td>
+            <td>59.85</td>
+            <td>95.22</td>
+            <td>97.81</td>
         </tr>
      </tbody>
 </table>
@@ -205,128 +208,38 @@ The baseline corresponds to the best off-the-shelf LLM (-base). The state of the
     <thead>
         <tr>
         	  <th colspan="2">LLM</th>
+        	  <th>BLEU</th>
             <th>chrF</th>
-            <th>chrF++</th>
-            <th>BLEU</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-        	  <td><b>Baseline</b></td>
-            <td><b>LLM-base</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        	  <td><b>Baseline<sub>PL-to-EN</sub></b></td>
+            <td><b>Mistral-Nemo-12B-default</b></td>
+            <td>53.68</td>
+            <td>75.35</td>
         </tr>
         <tr>
-        	  <td><b>SOTA</b></td>
-            <td><b>LLM-tuned</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        	  <td><b>SOTA<sub>PL-to-EN</sub></b></td>
+            <td><b>Bielik-12B-tuned-en</b></td>
+            <td>57.55</td>
+            <td>78.03</td>
+        </tr>
+        <tr>
+        	  <td><b>Baseline<sub>EN-to-PL</sub></b></td>
+            <td><b>Bielik-12B-default</b></td>
+            <td>41.49</td>
+            <td>71.78</td>
+        </tr>
+        <tr>
+        	  <td><b>SOTA<sub>EN-to-PL</sub></b></td>
+            <td><b>Bielik-11B-fewshot-en</b></td>
+            <td>43.02</td>
+            <td>72.46</td>
         </tr>
      </tbody>
 </table>
 
-
-
-<!--
-<table>
-    <thead>
-        <tr>
-            <th rowspan=2>Metric</th>
-            <th colspan="2">Proofreading</th>
-            <th colspan="2">Translation PL→EN</th>
-            <th colspan="2">Translation EN→PL</th>
-        </tr>
-    </thead>
-    <thead>
-        <tr>
-        	  <th></th>
-            <th>small</th>
-            <th>medium</th>
-            <th>small</th>
-            <th>medium</th>
-            <th>small</th>
-            <th>medium</th>
-        </tr>
-    </thead>
-    <tbody>
-    	 <tr>
-            <td><b>F<sub>1</sub></b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><b>Accuracy</b></td>
-            <td>0.95</td>
-            <td>0.95</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><b>Precision</b></td>
-            <td>0.39</td>
-            <td>0.41</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><b>Recall</b></td>
-            <td>0.36</td>
-            <td>0.39</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><b>BLEU</b></td>
-            <td>0.93</td>
-            <td>0.93</td>
-            <td>0.42</td>
-            <td>0.54</td>
-            <td>0.33</td>
-            <td>0.38</td>
-        </tr>
-        <tr>
-            <td><b>ROUGE-1</b></td>
-            <td>0.97</td>
-            <td>0.98</td>
-            <td>0.74</td>
-            <td>0.79</td>
-            <td>0.64</td>
-            <td>0.69</td>
-        </tr>
-        <tr>
-            <td><b>ROUGE-L</b></td>
-            <td>0.97</td>
-            <td>0.97</td>
-            <td>0.67</td>
-            <td>0.73</td>
-            <td>0.58</td>
-            <td>0.64</td>
-        </tr>
-        <tr>
-            <td><b>LLM</b></td>
-            <td>Llama-PLLuM-8B-ipis-pl</td>
-            <td>PLLuM_12B-ipis-en</td>
-            <td>Mistral-7B</td>
-            <td>Mistral-Nemo</td>
-            <td>Llama-PLLum-8B</td>
-            <td>Bielik-11B</td>
-        </tr>
-    </tbody>
-</table>
--->
 
 ## 🚀 Submission
 
@@ -392,5 +305,5 @@ JSON test instances submitted by participants must include the following fields:
 
 ## 📚 References
 
-* Alina Wróblewska and Bartosz Żuk (2025) *[IPIS: Inclusive Polish Instruction Set](https://huggingface.co/datasets/ipipan/ipis)* [to be published after the PolEval 2025 ends].
+* Alina Wróblewska and Bartosz Żuk (2025) *Integrating gender inclusivity into large language models via instruction tuning*. Arxiv.
 * Alina Wróblewska, Martyna Lewandowska, Aleksandra Tomaszewska, Karol Saputa and Maciej Ogrodniczuk (2025) *Koncepcja form równościowych z asteryskiem inkluzywnym*, Język Polski [to be published].
