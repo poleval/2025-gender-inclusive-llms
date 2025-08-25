@@ -116,7 +116,7 @@ The **gender-inclusive proofreading** *test*, *dev* and *train* subsets consist 
  
 🅱️ **Subtask**
 
-The **gender-sensitive translation** *test*, *dev* and *train* subsets consist of 456, 304 and 1728 instances, respectively. 
+The **gender-sensitive translation** *test* and *train* subsets consist of 760 and 1728 instances, respectively. 
 
 
 ## ⚖️ Evaluation
@@ -164,7 +164,7 @@ For evaluation, the gender-inclusive ```generated_target``` samples should be no
 
 ### Baseline and SOTA
 
-The baseline corresponds to the best off-the-shelf LLM (-default). The state of the art corresponds to the best LLM instruction-tuned on the IPIS train subset (-tuned) and possibly guided by a system prompt in Polish (-pl) or English (-en). We have tested multilingual models [Llama-8B](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct), [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2) and [Mistral-Nemo](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407), and Polish-specific models [Bielik-7B](https://huggingface.co/speakleash/Bielik-7B-Instruct-v0.1), [Llama-PLLuM-8B](https://huggingface.co/CYFRAGOVPL/Llama-PLLuM-8B-chat), [Bielik-11B](https://huggingface.co/speakleash/Bielik-11B-v2.3-Instruct) and [PLLuM-12B](https://huggingface.co/CYFRAGOVPL/PLLuM-12B-nc-chat). The detailed scores are in Wróblewska and Żuk (2025a).
+The baseline corresponds to the best off-the-shelf LLM (-default). The state of the art corresponds to the best LLM instruction-tuned on the IPIS train subset (-tuned) and possibly guided by a system prompt in Polish (-pl) or English (-en). We have tested multilingual models [Llama-8B](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct), [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2) and [Mistral-Nemo](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407), and Polish-specific models [Bielik-7B](https://huggingface.co/speakleash/Bielik-7B-Instruct-v0.1), [Llama-PLLuM-8B](https://huggingface.co/CYFRAGOVPL/Llama-PLLuM-8B-chat), [Bielik-11B](https://huggingface.co/speakleash/Bielik-11B-v2.3-Instruct) and [PLLuM-12B](https://huggingface.co/CYFRAGOVPL/PLLuM-12B-nc-chat). The detailed scores are in Wróblewska and Żuk (2025).
 
 
 🅰️ **Subtask**
