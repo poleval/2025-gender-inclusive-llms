@@ -305,5 +305,5 @@ JSON test instances submitted by participants must include the following fields:
 
 ## 📚 References
 
-* Alina Wróblewska and Bartosz Żuk (2025) *Integrating gender inclusivity into large language models via instruction tuning*. Arxiv.
-* Alina Wróblewska, Martyna Lewandowska, Aleksandra Tomaszewska, Karol Saputa and Maciej Ogrodniczuk (2025) *Koncepcja form równościowych z asteryskiem inkluzywnym*, Język Polski [to be published].
+* Alina Wróblewska and Bartosz Żuk (2025). [*Integrating gender inclusivity into large language models via instruction tuning*](https://arxiv.org/pdf/2508.18466). Arxiv.
+* Alina Wróblewska, Martyna Lewandowska, Aleksandra Tomaszewska, Karol Saputa and Maciej Ogrodniczuk (2025). [*Koncepcja form równościowych z asteryskiem inkluzywnym*](https://doi.org/10.31286/JP.001040), Język Polski CV(2), p. 97—118.
