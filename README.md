@@ -31,9 +31,11 @@ The task aims to raise community awareness of gender inequalities in Polish and 
 
 ### Specification
 
-🅰️ **Subtask:** LLMs will be evaluated on the **gender-inclusive proofreading** task, which involves transforming a text passage written in standard Polish into its gender-inclusive version.
+Each submitted gender-inclusive LLM will be evaluated on two tasks:
 
-🅱️ **Subtask:** LLMs will be evaluated on the **gender-sensitive Polish⇄English translation** task, which involves translating a text passage written in gender-inclusive Polish into English or an English text passage into a gender-inclusive Polish translation.
+> 🅰️ **gender-inclusive proofreading** — transforming a text passage written in standard Polish into its gender-inclusive version.
+> 
+> 🅱️ **Gender-sensitive Polish⇄English translation** — translating a text passage written in gender-inclusive Polish into English or an English text passage into a gender-inclusive Polish translation.
 
 📦 **Data:** Inclusive Polish Instruction Set (**IPIS**) is made available to all participants.
 
@@ -125,7 +127,7 @@ The **gender-sensitive translation** *test* and *train* subsets consist of 760 a
 
 🅱️ **Subtask**
 
-To evaluate the ability of LLMs to process and generate gender-inclusive Polish in the Polish⇄English translation scenario, their outcomes are compared against gold standard test instances and ranked using the primary metric:
+To evaluate the ability of the gender-inclusive LLM to process and generate gender-inclusive Polish in the Polish⇄English translation scenario, its outcomes are compared against gold standard test instances and ranked using the primary metric:
 
 *  *chrF* ([Popović, 2015](https://aclanthology.org/W15-3049.pdf))
 
@@ -136,7 +138,7 @@ The translation quality is additionally evaluated with two secondary metrics:
 
 🅰️ **Subtask**
 
-To evaluate the ability of LLMs to generate gender-inclusive language, their outcomes are compared against gold standard test instances. The normalised LLM-generated texts are evaluated with the primary metric:
+To evaluate the ability of the gender-inclusive LLM to generate gender-inclusive language, its outcomes are compared against gold standard test instances. The normalised LLM-generated texts are evaluated with the primary metric:
 
 * *F<sub>1</sub>-measure* (see [Normalisation procedure](#procedure) for details how to normalise LLMs' outputs). 
 
@@ -299,7 +301,7 @@ JSON test instances submitted by participants must include the following fields:
 
 ### Submission components for both subtasks
 1. A ```.jsonl``` file containing a list of instances, each formatted as a JSON object.
-2. A link to an LLM participating in the shared task.
+2. A link to the gender-inclusive LLM participating in this task.
 3. Names, emails and institutional affiliations of all team members.
 
 
