@@ -37,15 +37,15 @@ Each submitted gender-inclusive LLM will be evaluated on two tasks:
 > 
 > 🅱️ **Gender-sensitive Polish⇄English translation** — translating a text passage written in gender-inclusive Polish into English or an English text passage into a gender-inclusive Polish translation.
 
-📦 **Data:** Inclusive Polish Instruction Set (**IPIS**) is made available to all participants.
+👉 **Data:** Inclusive Polish Instruction Set (**IPIS**) is made available to all participants.
 
-💹 **Working phase:** Using the *train* and *dev* subsets of the IPIS dataset, participants are expected to enhance **open-source LLMs** to ensure gender inclusivity.
+👉 **Working phase:** Using the *train* and *dev* subsets of the IPIS dataset, participants are expected to enhance an **open-source LLM** to ensure gender inclusivity.
 
-✅ **Testing phase:** Using the *test* subset of the IPIS dataset, submitted outputs of gender-inclusive LLMs will be evaluated in the PolEval system.
+👉 **Testing phase:** Using the *test* subset of the IPIS dataset, submitted outputs of the gender-inclusive LLM will be evaluated in the PolEval system.
 
-*️⃣ **System prompt:** The system prompts with **gender-inclusive guidelines** based on Wróblewska et al. (2025) are available in the task repository. Participants are encouraged to apply the provided system prompts during training and inference. 
+👉 **System prompt:** The system prompts with **gender-inclusive guidelines** based on Wróblewska et al. (2025) are available in the task repository. Participants are encouraged to apply the provided [system prompts](https://github.com/poleval/2025-gender-inclusive-llms/tree/main/extras/system_prompts) during training and inference. 
 
-⚠️ While modifications to the system prompt and alternative uses of the IPIS dataset, such as for data augmentation, are permitted, these must align with the task requirements and principles of fair competition.
+‼️ While modifications to the system prompt and alternative uses of the IPIS dataset, such as for data augmentation, are permitted, these must align with the task requirements and principles of fair competition.
 
 
 ### Task constraints
@@ -68,7 +68,7 @@ Each submitted gender-inclusive LLM will be evaluated on two tasks:
 
 ### IPIS format
 
-🅰️ **Subtask**
+#### 🅰️ **Subtask**
 
 Each IPIS-proofreading sample consists of three main components:
 
@@ -87,7 +87,7 @@ Each IPIS-proofreading sample consists of three main components:
  'normalised_target': null}
 ```
 
-🅱️ **Subtask**
+#### 🅱️ **Subtask**
 
 Each IPIS-translation sample consists of three main components and lanugage specifications:
 
@@ -112,11 +112,11 @@ Each IPIS-translation sample consists of three main components and lanugage spec
 
 ### IPIS size
 
-🅰️ **Subtask**
+#### 🅰️ **Subtask**
 
 The **gender-inclusive proofreading** *test*, *dev* and *train* subsets consist of 5278, 2732 and 23,532 instances, respectively. All IPIS test, dev and train subsets are balanced for the ratio of gender-inclusive transformations.
  
-🅱️ **Subtask**
+#### 🅱️ **Subtask**
 
 The **gender-sensitive translation** *test* and *train* subsets consist of 760 and 1728 instances, respectively. 
 
@@ -125,7 +125,7 @@ The **gender-sensitive translation** *test* and *train* subsets consist of 760 a
 
 ### Methodology
 
-🅱️ **Subtask**
+#### 🅱️ **Subtask**
 
 To evaluate the ability of the gender-inclusive LLM to process and generate gender-inclusive Polish in the Polish⇄English translation scenario, its outcomes are compared against gold standard test instances and ranked using the primary metric:
 
@@ -136,7 +136,7 @@ The translation quality is additionally evaluated with two secondary metrics:
 *  *chrF++*
 *  *BLEU* ([Papieni et al., 2002](https://aclanthology.org/P02-1040.pdf)).
 
-🅰️ **Subtask**
+#### 🅰️ **Subtask**
 
 To evaluate the ability of the gender-inclusive LLM to generate gender-inclusive language, its outcomes are compared against gold standard test instances. The normalised LLM-generated texts are evaluated with the primary metric:
 
@@ -162,14 +162,14 @@ Various gender-inclusive alternatives are possible, e.g. for *posłowie* [deputi
 
 For evaluation, the gender-inclusive ```generated_target``` samples should be normalised. The normalisation process consists in expanding all occurrences of gender-inclusive expressions, especially those containing slashes or gender stars (asterisks), into their full masculine and feminine forms and then filtering out predefined stop words (i.e. punctuation marks, subordinating and coordinating conjunctions). For normalisation steps, we use [Lambo](https://gitlab.clarin-pl.eu/syntactic-tools/lambo) (Przybyła, 2022) for tokenisation and [Combo](https://gitlab.clarin-pl.eu/syntactic-tools/combo) ([Klimaszewski and Wróblewska, 2021](https://aclanthology.org/2021.emnlp-demo.7)) for part-of-speech tagging.
 
-⚠️ A Python script for normalisation is included in the task repository.
+👉 A Python [script for normalisation](https://github.com/poleval/2025-gender-inclusive-llms/tree/main/extras/normalisation_script) is included in the task repository.
 
 ### Baseline and SOTA
 
 The baseline corresponds to the best off-the-shelf LLM (-default). The state of the art corresponds to the best LLM instruction-tuned on the IPIS train subset (-tuned) and possibly guided by a system prompt in Polish (-pl) or English (-en). We have tested multilingual models [Llama-8B](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct), [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2) and [Mistral-Nemo](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407), and Polish-specific models [Bielik-7B](https://huggingface.co/speakleash/Bielik-7B-Instruct-v0.1), [Llama-PLLuM-8B](https://huggingface.co/CYFRAGOVPL/Llama-PLLuM-8B-chat), [Bielik-11B](https://huggingface.co/speakleash/Bielik-11B-v2.3-Instruct) and [PLLuM-12B](https://huggingface.co/CYFRAGOVPL/PLLuM-12B-nc-chat). The detailed scores are in Wróblewska and Żuk (2025).
 
 
-🅰️ **Subtask**
+#### 🅰️ **Subtask**
 
 <table>
     <thead>
@@ -204,7 +204,7 @@ The baseline corresponds to the best off-the-shelf LLM (-default). The state of 
      </tbody>
 </table>
 
-🅱️ **Subtask**
+#### 🅱️ **Subtask**
 
 <table>
     <thead>
@@ -245,9 +245,14 @@ The baseline corresponds to the best off-the-shelf LLM (-default). The state of 
 
 ## 🚀 Submission
 
-🅰️ **Subtask**
+### 🅰️ **Subtask**
 
-Test instances provided to participants in the testing phase will have the following structure:
+#### Test data
+
+* [Gender-inclusive proofreading − Test A](https://github.com/poleval/2025-gender-inclusive-llms/blob/main/data/ipis-proofreading/test_A.jsonl)
+* Gender-inclusive proofreading − Test B (final)
+
+👉 Test instances provided to participants in the testing phase will have the following structure:
 
 ```
 {'source_resource_id': 'example-test',
@@ -258,7 +263,12 @@ Test instances provided to participants in the testing phase will have the follo
  'normalised_target': null}
 ```
 
-JSON test instances submitted by participants must include the following fields: 
+#### Submission format
+
+* [Sample submission file](https://github.com/poleval/2025-gender-inclusive-llms/blob/main/extras/sample_submission_files/sample_proofreading.tsv)
+
+
+👉 JSON test instances submitted by participants must include the following fields: 
 
 * ```ipis_id``` with the original IPIS ID
 * ```generated_target``` with a text passage proofread by the participating LLM
@@ -270,12 +280,23 @@ JSON test instances submitted by participants must include the following fields:
  'normalised_target': ['w', '24-osobowym', 'składzie', 'sędziowskim', 'znalazło', 'się', '8', 'polaków', 'polek', 'pianistów', 'pianistek', 'pedagogów', 'pedagożek', 'w', 'przypadku', 'własnych', 'uczniów', 'uczennic', 'nie', 'będą', 'mieli', 'miały', 'prawa', 'głosu', 'pojawią', 'się', 'też', 'm.in', 'laureat', 'nagrody', 'za', 'najlepsze', 'nagranie', 'roku', 'chopinowskiego', 'emanuel', 'ax', 'rosyjska', 'pianistka', 'reprezentująca', 'usa', 'bella', 'davidovich']}
 ```
 
-⚠️ For normalisation, we recommend using a Python normalisation script included in the task repository. 
+👉 PolEval 2025 evaluation platform accepts submission files (JSONL) only if they have the *.tsv* extension.
 
-🅱️ **Subtask**
+👉 For normalisation, we recommend using a Python [normalisation script](https://github.com/poleval/2025-gender-inclusive-llms/tree/main/extras/normalisation_script) included in the task repository.
 
+#### PolEval 2025 evaluation platform
 
-Test instances provided to participants in the testing phase will have the following structure:
+* [Gender-inclusive proofreading − Test A](https://poleval.amueval.pl/challenge/Gender-inclusive%20LLMs%20–%20Proofreading%20–%20Test%20A)
+* Gender-inclusive proofreading − Test B
+
+### 🅱️ **Subtask**
+
+#### Test data
+
+* [Gender-sensitive translation − Test A](https://github.com/poleval/2025-gender-inclusive-llms/blob/main/data/ipis-translation/test_A.jsonl)
+* Gender-sensitive translation − Test B (final)
+
+👉 Test instances provided to participants in the testing phase will have the following structure:
 
 ```
 {'source_resource_id': 'example-test',
@@ -288,8 +309,11 @@ Test instances provided to participants in the testing phase will have the follo
  'target_language': 'EN'}
 ```
 
+#### Sumbission format
 
-JSON test instances submitted by participants must include the following fields:
+* [Sample submission format](https://github.com/poleval/2025-gender-inclusive-llms/blob/main/extras/sample_submission_files/sample_translation.tsv)
+
+👉 JSON test instances submitted by participants must include the following fields:
 
 * ```ipis_id``` with the original IPIS ID
 * ```generated_target``` with a text passage translated by the participating LLM
@@ -298,12 +322,24 @@ JSON test instances submitted by participants must include the following fields:
 {'ipis_id': 'IPIS_translation_test_X',
  'generated_target': 'Among the 24-member jury are 8 Poles — pianists and educators. They will not be allowed to vote for their students. There are also, among others, Emanuel Ax, the winner of the award for the best recording of the Chopin Year, and Bella Davidovich, a Russian-born pianist representing the USA.'}
 ```
+👉 PolEval 2025 evaluation platform accepts submission files (JSONL) only if they have the .tsv extension.
+
+#### PolEval 2025 evaluation platform
+
+* [Gender-sensitive translation − Test A](https://poleval.amueval.pl/challenge/Gender-inclusive%20LLMs%20–%20Translation%20–%20Test%20A)
+* Gender-sensitive translation − Test B
 
 ### Submission components for both subtasks
 1. A ```.jsonl``` file containing a list of instances, each formatted as a JSON object.
 2. A link to the gender-inclusive LLM participating in this task.
 3. Names, emails and institutional affiliations of all team members.
 
+
+## 🏆 Final Presentation
+
+🗣️ PolEval 2025 will conclude with a presentation of the participating systems and the overall results, along with highlights of the most effective solutions, at [TO-BE-ADDED].
+
+📖 Descriptions of the submitted solutions will be published in [TO-BE-ADDED].
 
 ## 📚 References
 
