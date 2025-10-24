@@ -14,13 +14,19 @@ back = re.compile('.+/.+')
 
 lambo = Lambo.get("Polish")
 
-# Note! Due to temporary server issues, automatic combo-model downloading is currently unavailable.
-# Please download the model manually from:
-combo = COMBO.from_pretrained('../polish-herbert-base-ud213')
+# UPDATE 2024-10-24: Due to temporary server issues, automatic combo-model downloading may be unavailable.
+#                    If you are unable to download the model directly via ```combo = COMBO.from_pretrained('polish-herbert-base-ud213')```,
+#                    please download the model manually from:
+#                    https://mozart.ipipan.waw.pl/~alina/Polish_dependency_parsing_models/COMBO3/polish-herbert-base-ud213.tar.gz
+#                    Add a path to the model: ```combo = COMBO.from_pretrained('path-to-the-combo-model/polish-herbert-base-ud213')```
 
+combo = COMBO.from_pretrained('polish-herbert-base-ud213')
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# UPDATE 2024-10-24: Run the normalisation script from the command line as follows:
+#                    ```python normaliser_ipis.py sample_proofreading.jsonl sample_proofreading_normalised.jsonl```
 
 
 def read_instances(path: Path) -> List[Dict]:
